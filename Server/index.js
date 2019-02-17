@@ -5,10 +5,10 @@ const Chance = require("chance");
 
 const io = require("socket.io").listen(server);
 const port = 8080;
-const chanse = new Chance();
+const chance = new Chance();
 
 io.on("connection", socket => {
-  let username = chanse.name();
+  let username = chance.name();
   io.emit("UserConnected", username);
   socket.emit("AssignUsername", username);
   socket.on("MessageSent", message => {
